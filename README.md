@@ -33,8 +33,8 @@ A powerful menu bar application that provides instant bidirectional English-Japa
 
 ### 1. Get a Gemini API Key
 
-1. Visit [Google AI Studio](https://aistudio.google.com/api-keys?project=sys-06768778572022160237595161)
-2. Copy the key Hermes and use in the app
+1. Visit [Google AI Studio](https://aistudio.google.com/api-keys)
+2. Create API key and use in the app
 
 ### 2. Download ready build app OR Build the App yourself
 
