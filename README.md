@@ -1,6 +1,6 @@
 # Hermes - Instant Translation for macOS
 
-A powerful menu bar application that provides instant bidirectional English-Japanese translation using Google's Gemini AI.
+A powerful menu bar application that provides instant bidirectional English-Japanese translation using Google's Gemini AI. Build completely by Cursor
 
 ## Features
 
@@ -22,11 +22,15 @@ A powerful menu bar application that provides instant bidirectional English-Japa
 
 ### 1. Get a Gemini API Key
 
-1. Visit [Google AI Studio](https://makersuite.google.com/app/apikey)
-2. Create a new API key
-3. Copy the key for use in the app
+1. Visit [Google AI Studio](https://aistudio.google.com/api-keys?project=sys-06768778572022160237595161)
+2. Copy the key Hermes and use in the app
 
-### 2. Build the App
+### 2. Download ready build app OR Build the App yourself
+
+1. Go to dist folder
+2. Download the zip or dmg file 
+
+OR
 
 1. Open `HermesApp.xcodeproj` in Xcode
 2. Set your development team in the project settings

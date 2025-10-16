@@ -165,7 +165,6 @@ ENV/
 
 # Project-specific
 # Uncomment if you don't want to track these:
-dist/
 Initial_requirements/
 # release/
 # *.dmg
