@@ -1,6 +1,17 @@
 # Hermes - Instant Translation for macOS
 
+[![Release](https://img.shields.io/github/v/release/stanleyinbali/hermes-translation-app?style=for-the-badge&logo=github)](https://github.com/stanleyinbali/hermes-translation-app/releases/latest)
+[![Downloads](https://img.shields.io/github/downloads/stanleyinbali/hermes-translation-app/total?style=for-the-badge)](https://github.com/stanleyinbali/hermes-translation-app/releases)
+[![License](https://img.shields.io/github/license/stanleyinbali/hermes-translation-app?style=for-the-badge)](LICENSE)
+
 A powerful menu bar application that provides instant bidirectional English-Japanese translation using Google's Gemini AI. Build completely by Cursor
+
+## 📥 Download
+
+**[⬇️ Download Latest Release (v1.0.0)](https://github.com/stanleyinbali/hermes-translation-app/releases/latest)**
+
+- **Hermes-v1.0.dmg** (390 KB) - Recommended
+- **Hermes-v1.0.zip** (168 KB) - Alternative
 
 ## Features
 
@@ -27,7 +38,7 @@ A powerful menu bar application that provides instant bidirectional English-Japa
 
 ### 2. Download ready build app OR Build the App yourself
 
-Download the zip or dmg file from [releases](/releases)
+Download the zip or dmg file from link above
 
 OR
 
