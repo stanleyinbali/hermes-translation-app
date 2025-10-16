@@ -27,8 +27,7 @@ A powerful menu bar application that provides instant bidirectional English-Japa
 
 ### 2. Download ready build app OR Build the App yourself
 
-1. Go to dist folder
-2. Download the zip or dmg file 
+Download the zip or dmg file from [releases](/releases)
 
 OR
 
