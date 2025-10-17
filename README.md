@@ -13,6 +13,17 @@ A powerful menu bar application that provides instant bidirectional English-Japa
 - **Hermes-v1.0.dmg** (390 KB) - Recommended
 - **Hermes-v1.0.zip** (168 KB) - Alternative
 
+### ⚠️ Important: First Launch Fix
+
+If you see **"HermesApp is damaged and can't be opened"**:
+
+**Quick Fix (Copy & Paste):**
+```bash
+xattr -cr /Applications/HermesApp.app
+```
+
+This is NOT damage - it's macOS Gatekeeper blocking unsigned apps. See [INSTALL.md](https://github.com/stanleyinbali/hermes-translation-app/releases/download/v1.0.0/INSTALL.md) for details.
+
 ## Features
 
 - **Global Shortcut**: Press Cmd+C+C to instantly translate selected text
