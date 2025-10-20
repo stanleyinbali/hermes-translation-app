@@ -43,7 +43,25 @@ class GeminiTranslationService: ObservableObject {
     
     func translate(
         text: String,
-        model: GeminiModel = .flashPreview
+        model: GeminiModel? = nil
+    ) async throws -> TranslationResult {
+        // Use the provided model or get from UserDefaults
+        let selectedModel: GeminiModel
+        if let model = model {
+            selectedModel = model
+        } else {
+            let modelString = UserDefaults.standard.string(forKey: "selectedGeminiModel") ?? GeminiModel.flashLite.rawValue
+            selectedModel = GeminiModel(rawValue: modelString) ?? .flashLite
+        }
+        
+        print("🤖 Using model: \(selectedModel.displayName)")
+        
+        return try await translateWithModel(text: text, model: selectedModel)
+    }
+    
+    private func translateWithModel(
+        text: String,
+        model: GeminiModel
     ) async throws -> TranslationResult {
         print("🔄 Starting translation...")
         print("📝 Text to translate: '\(text.prefix(100))'")
@@ -248,7 +266,7 @@ class GeminiTranslationService: ObservableObject {
         let japaneseRegex = try? NSRegularExpression(pattern: "[\\u3040-\\u309F\\u30A0-\\u30FF\\u4E00-\\u9FAF]")
         
         if let regex = japaneseRegex,
-           let match = regex.firstMatch(in: text, options: [], range: japaneseRange) {
+           regex.firstMatch(in: text, options: [], range: japaneseRange) != nil {
             // Calculate percentage of Japanese characters
             let japaneseCount = regex.numberOfMatches(in: text, options: [], range: japaneseRange)
             let totalChars = text.count

@@ -63,7 +63,7 @@ struct AppSettings {
     
     init() {
         self.geminiAPIKey = nil
-        self.selectedModel = .flashPreview
+        self.selectedModel = .flashLite
         self.globalShortcutEnabled = true
         self.showNotifications = true
         self.defaultSourceLanguage = nil
@@ -72,25 +72,22 @@ struct AppSettings {
 }
 
 enum GeminiModel: String, CaseIterable, Identifiable {
+    case flashLite = "gemini-2.0-flash-lite"
     case flashPreview = "gemini-2.0-flash-exp"
-    case flash = "gemini-1.5-flash"
-    case pro = "gemini-1.5-pro"
     
     var id: String { rawValue }
     
     var displayName: String {
         switch self {
+        case .flashLite: return "Gemini 2.0 Flash-Lite"
         case .flashPreview: return "Gemini 2.0 Flash (Experimental)"
-        case .flash: return "Gemini 1.5 Flash"
-        case .pro: return "Gemini 1.5 Pro"
         }
     }
     
     var description: String {
         switch self {
-        case .flashPreview: return "Fastest, latest model (Recommended)"
-        case .flash: return "Fast and efficient"
-        case .pro: return "Most capable, slower"
+        case .flashLite: return "Fast and efficient (Recommended)"
+        case .flashPreview: return "Fastest, latest experimental model"
         }
     }
 }

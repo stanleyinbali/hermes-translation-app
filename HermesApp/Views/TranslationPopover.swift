@@ -36,8 +36,8 @@ struct TranslationPopoverView: View {
     }
     
     private var headerView: some View {
-        HStack {
-            // Language selector (matching the UI design)
+        HStack(spacing: 12) {
+            // Language selector (balanced design)
             Menu {
                 ForEach(Language.allCases) { language in
                     Button(action: {
@@ -45,7 +45,9 @@ struct TranslationPopoverView: View {
                     }) {
                         HStack {
                             Text(language.flag)
+                                .font(.system(size: 14))
                             Text(language.displayName)
+                                .font(.system(size: 13))
                             Spacer()
                             if selectedLanguage == language {
                                 Image(systemName: "checkmark")
@@ -54,16 +56,17 @@ struct TranslationPopoverView: View {
                     }
                 }
             } label: {
-                HStack {
+                HStack(spacing: 8) {
                     Text(selectedLanguage.flag)
+                        .font(.system(size: 16))
                     Text(selectedLanguage.displayName)
-                        .fontWeight(.medium)
+                        .font(.system(size: 13, weight: .medium))
                     Image(systemName: "chevron.down")
-                        .font(.caption)
+                        .font(.system(size: 10))
                         .foregroundColor(.secondary)
                 }
-                .padding(.horizontal, 12)
-                .padding(.vertical, 6)
+                .frame(height: 32)
+                .padding(.horizontal, 14)
                 .background(Color(NSColor.controlBackgroundColor))
                 .cornerRadius(6)
             }
@@ -75,7 +78,8 @@ struct TranslationPopoverView: View {
             Button(action: {
                 showingSettings = true
             }) {
-                Image(systemName: "gear")
+                Image(systemName: "gearshape.fill")
+                    .font(.system(size: 15))
                     .foregroundColor(.secondary)
             }
             .buttonStyle(.borderless)
@@ -86,13 +90,14 @@ struct TranslationPopoverView: View {
                 MenuBarController.shared.hidePopover()
             }) {
                 Image(systemName: "xmark")
+                    .font(.system(size: 15))
                     .foregroundColor(.secondary)
             }
             .buttonStyle(.borderless)
             .help("Close")
         }
         .padding(.horizontal, 16)
-        .padding(.vertical, 12)
+        .padding(.vertical, 10)
     }
     
     private var contentView: some View {
@@ -228,48 +233,48 @@ struct TranslationPopoverView: View {
     }
     
     private var actionButtonsView: some View {
-        HStack(spacing: 12) {
+        HStack(spacing: 10) {
             if let result = menuBarController.translationState.currentResult {
-                // Copy button (matching the UI design)
+                // Copy button (compact design)
                 Button(action: {
                     copyToClipboard(result.translatedText)
                 }) {
-                    HStack(spacing: 8) {
+                    HStack(spacing: 6) {
                         Image(systemName: "doc.on.doc")
-                            .font(.system(size: 15))
+                            .font(.system(size: 13))
                         Text("Copy")
-                            .font(.system(size: 15, weight: .medium))
+                            .font(.system(size: 13, weight: .medium))
                     }
                     .frame(maxWidth: .infinity)
-                    .frame(height: 40)
+                    .frame(height: 32)
                 }
                 .buttonStyle(.borderless)
                 .background(Color(NSColor.controlBackgroundColor))
-                .cornerRadius(8)
+                .cornerRadius(6)
                 
-                // Replace button (matching the UI design)
+                // Replace button (compact design)
                 Button(action: {
                     replaceSelectedText(with: result.translatedText)
                 }) {
-                    HStack(spacing: 8) {
+                    HStack(spacing: 6) {
                         Image(systemName: "arrow.triangle.2.circlepath")
-                            .font(.system(size: 15))
+                            .font(.system(size: 13))
                         Text("Replace")
-                            .font(.system(size: 15, weight: .medium))
+                            .font(.system(size: 13, weight: .medium))
                     }
                     .frame(maxWidth: .infinity)
-                    .frame(height: 40)
+                    .frame(height: 32)
                 }
                 .buttonStyle(.borderless)
                 .background(Color.accentColor)
                 .foregroundColor(.white)
-                .cornerRadius(8)
+                .cornerRadius(6)
             } else {
                 Spacer()
             }
         }
         .padding(.horizontal, 16)
-        .padding(.vertical, 12)
+        .padding(.vertical, 10)
     }
     
     // MARK: - Actions

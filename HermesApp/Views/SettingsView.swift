@@ -7,10 +7,15 @@ struct SettingsView: View {
     @ObservedObject private var shortcutMonitor = GlobalShortcutMonitor.shared
     
     @State private var apiKey: String = ""
-    @State private var selectedModel: GeminiModel = .flashPreview
+    @AppStorage("selectedGeminiModel") private var selectedModel: String = GeminiModel.flashLite.rawValue
     @State private var showingAPIKeyField = false
     @State private var saveError: String?
     @State private var saveSuccess = false
+    
+    // Computed property to get the actual GeminiModel enum
+    private var currentModel: GeminiModel {
+        GeminiModel(rawValue: selectedModel) ?? .flashLite
+    }
     
     var body: some View {
         VStack(alignment: .leading, spacing: 20) {
@@ -137,16 +142,21 @@ struct SettingsView: View {
                 
                 Picker("Model", selection: $selectedModel) {
                     ForEach(GeminiModel.allCases) { model in
-                        VStack(alignment: .leading) {
-                            Text(model.displayName)
-                            Text(model.description)
-                                .font(.caption)
-                                .foregroundColor(.secondary)
-                        }
-                        .tag(model)
+                        Text(model.displayName).tag(model.rawValue)
                     }
                 }
                 .pickerStyle(.menu)
+                
+                // Show description below the picker
+                if let model = GeminiModel(rawValue: selectedModel) {
+                    Text(model.description)
+                        .font(.caption)
+                        .foregroundColor(.secondary)
+                }
+                
+                Text("Your selection is automatically saved")
+                    .font(.caption)
+                    .foregroundColor(.secondary)
             }
             
             // Error/Success messages
